@@ -8,4 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: e8325fb98c664e7499c3741d7fa424d6
+  - enabled: 1
+    path: Assets/Scenes/MapScreen.unity
+    guid: 8e506460f76439d4e8fc80c9d3b26b9a
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
