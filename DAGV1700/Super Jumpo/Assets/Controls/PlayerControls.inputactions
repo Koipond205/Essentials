@@ -11,23 +11,35 @@
                     "id": "dfd547c2-65c9-4cb9-a313-faf62a7ab5f4",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
                     "type": "Button",
                     "id": "86a3b7f0-f98f-4762-9f66-f24d2420658d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "DropDown",
                     "type": "Button",
                     "id": "fab3e53a-23c1-4e60-873e-1453387a1c52",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseAbility",
+                    "type": "Button",
+                    "id": "ee0c2a2d-183a-4979-9565-214addbf8c29",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -143,17 +155,6 @@
                 },
                 {
                     "name": "",
-                    "id": "55d0f1bd-f850-443b-a0eb-93c2e5433f8c",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cc02a1df-bda4-4618-952e-c7b523e60cc5",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -173,6 +174,28 @@
                     "action": "DropDown",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0694b11-17ba-481e-b2f8-fdb401ce8bbb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8867291-9557-425b-979e-87b0e658ab6b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -186,7 +209,8 @@
                     "id": "6159fc05-2709-49ee-acbb-6ac778a0b97c",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Submit",
@@ -194,7 +218,8 @@
                     "id": "f4218e5e-4b3f-4868-b810-b297a233812c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Cancel",
@@ -202,7 +227,8 @@
                     "id": "9ff3af97-c21a-4f9b-90bb-11a145a40aba",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
@@ -210,7 +236,8 @@
                     "id": "eacc4b3f-6d22-48f7-b1af-004fae5a4834",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Click",
@@ -218,7 +245,8 @@
                     "id": "969c8b4c-90cf-4400-8e5a-e26cd4bd2200",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ScrollWheel",
@@ -226,7 +254,8 @@
                     "id": "edd650c5-4e52-4107-8976-749d90d5b261",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MiddleClick",
@@ -234,7 +263,8 @@
                     "id": "eb5c14ff-f571-4760-939d-8edbd39b6521",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightClick",
@@ -242,7 +272,8 @@
                     "id": "63f950d5-0c6a-41ad-ab22-6b233a306198",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDevicePosition",
@@ -250,7 +281,8 @@
                     "id": "eacaac55-2f52-4b98-8d3c-dea415205924",
                     "expectedControlType": "Vector3",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDeviceOrientation",
@@ -258,7 +290,8 @@
                     "id": "cdb08348-79bb-46af-8cd8-ed63a7e4d8f5",
                     "expectedControlType": "Quaternion",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
