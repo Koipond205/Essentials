@@ -17,10 +17,10 @@ public class MiningAbility : MonoBehaviour
         // For this example, we'll use input keys directly to set the direction for mining.
         HandleDirectionalInput();
         
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SwingPickaxe();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SwingPickaxe();
+        //}
     }
 
     private void HandleDirectionalInput()
@@ -80,6 +80,7 @@ public class MiningAbility : MonoBehaviour
                 if (block != null)
                 {
                    StartCoroutine(BreakObjectAfterDelay(block, 0.2f)); // Add small delay
+                   
                 }
             }
         }

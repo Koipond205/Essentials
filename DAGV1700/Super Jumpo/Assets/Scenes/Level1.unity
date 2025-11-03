@@ -7283,7 +7283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae93cb59626041c43833bf8cc75e374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 2b1924bf5ae312742978ac02affe54a7, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 76049b3efefaa1c4ebf4c02648d31ead, type: 3}
 --- !u!82 &852222638
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7295,11 +7295,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 2b1924bf5ae312742978ac02affe54a7, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 76049b3efefaa1c4ebf4c02648d31ead, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9850,7 +9850,6 @@ GameObject:
   - component: {fileID: 1586193361}
   - component: {fileID: 1586193360}
   - component: {fileID: 1586193362}
-  - component: {fileID: 1586193363}
   - component: {fileID: 1586193364}
   m_Layer: 8
   m_Name: Player
@@ -10238,10 +10237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedPowerups:
-  - {fileID: 11400000, guid: c51578d658f8e4d47ba19a105873b983, type: 2}
+  - {fileID: 11400000, guid: a0b5411a1a19c6c45b83cca4b8ebaf13, type: 2}
   - {fileID: 11400000, guid: 78be07599189da242bec7ebfaaf8ee12, type: 2}
   - {fileID: 11400000, guid: 006339844b6426849b84885ef2625447, type: 2}
-  - {fileID: 11400000, guid: bf571bf001115454f94ff75b7cf3519c, type: 2}
   - {fileID: 11400000, guid: bf571bf001115454f94ff75b7cf3519c, type: 2}
   activePowerup: {fileID: 0}
 --- !u!114 &1586193357
@@ -10531,24 +10529,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   consistentThrowForce: 10
---- !u!114 &1586193363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586193346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00da08c4232771f4da697a22a208bb66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1586193364}
-  interactionDistance: 1.5
-  breakableTilemap: {fileID: 0}
-  breakableLayer:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!95 &1586193364
 Animator:
   serializedVersion: 7
