@@ -88,8 +88,13 @@ public class PickupAbility : MonoBehaviour
 
         heldObject.bodyType = RigidbodyType2D.Dynamic;
         heldObject.transform.parent = null;
-        Vector2 dropOffset = playerMovement.isFacingRight ? Vector2.right * 0.5f : Vector2.left * 0.5f;
-        heldObject.transform.position = (Vector2)dropPoint.position + dropOffset;
+        // Determine direction based on facing
+        float direction = playerMovement.isFacingRight ? 1f : -1f;
+
+        // Compute world drop position relative to player
+        Vector2 dropPos = (Vector2)transform.position + new Vector2(direction * 0.75f, 0.0f);
+
+        heldObject.transform.position = dropPos;
         heldObject.linearVelocity = Vector2.zero;
         heldObject = null;
         isHolding = false;

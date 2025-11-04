@@ -176,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 ls = transform.localScale;
                 ls.x *= -1f;
                 transform.localScale = ls;
+                Debug.Log("FlipForced");
             }
 
             Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); //wall Jump = 0.5f -- Jump again = 0.6f
@@ -208,8 +209,9 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessWallSlide()
     {
         //Not grounded & On a Wall & movement != 0
-        if (!isGrounded & WallCheck() & horizontalMovement != 0)
+        if (!isGrounded && WallCheck() && horizontalMovement != 0)
         {
+            Debug.Log("WallSliding");
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -wallSlideSpeed)); //Caps fall rate
         }
@@ -242,12 +244,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if(isFacingRight && horizontalMovement < 0 || !isFacingRight && horizontalMovement > 0)
+        if(isFacingRight & horizontalMovement < 0 || !isFacingRight & horizontalMovement > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 ls = transform.localScale;
             ls.x *= -1f;
             transform.localScale = ls;
+            Debug.Log("Flip");
 
             if(rb.linearVelocity.y == 0)
             {
