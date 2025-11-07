@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     private int currentHealth;
+    private Animator animator;
 
     public HealthUI healthUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthUI.SetMaxHearts(maxHealth);
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthUI.UpdateHearts(currentHealth);
+        animator.SetTrigger("Hurt");
+        SoundEffectManager.Instance.PlaySound("YanyaSFX3");
 
         if(currentHealth <= 0)
         {

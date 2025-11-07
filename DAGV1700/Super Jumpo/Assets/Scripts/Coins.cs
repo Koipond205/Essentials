@@ -17,6 +17,7 @@ public class Coins : MonoBehaviour, IItem
 
             if (OnCollect != null)
             {
+                SoundEffectManager.Instance.PlaySound("CoinSFX1");
                 OnCollect.Invoke(worth);
             }
 

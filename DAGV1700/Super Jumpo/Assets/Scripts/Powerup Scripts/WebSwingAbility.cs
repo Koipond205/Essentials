@@ -43,6 +43,7 @@ public class WebSwingAbility : MonoBehaviour
     public void ShootWeb()
     {
         lineRenderer.enabled = true;
+        SoundEffectManager.Instance.PlaySound("LandingSFX1");
 
         facingRight = playerMovement.isFacingRight;
         Vector2 direction = playerMovement.isFacingRight ? Vector2.right : Vector2.left;

@@ -70,20 +70,20 @@ public class PickupAbility : MonoBehaviour
 
     private void PickUpObject(Rigidbody2D objectRb)
     {
-        Debug.Log("Hold");
+        SoundEffectManager.Instance.PlaySound("YanyaSFX1");
         heldObject = objectRb;
         heldObject.bodyType = RigidbodyType2D.Kinematic;
         heldObject.transform.position = holdPoint.position;
         heldObject.transform.SetParent(holdPoint);
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), heldObject.GetComponent<Collider2D>(), true);
         isHolding = true;
-        Debug.Log("IsHolding");
     }
 
     private void DropObject()
     {
         if (heldObject == null) return;
 
+        SoundEffectManager.Instance.PlaySound("YanyaSFX2");
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), heldObject.GetComponent<Collider2D>(), false);
 
         heldObject.bodyType = RigidbodyType2D.Dynamic;

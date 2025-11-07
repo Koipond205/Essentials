@@ -22,18 +22,6 @@ public class DashAbility : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Activate()
     {
         if(canDash)
@@ -47,7 +35,7 @@ public class DashAbility : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, true);
         canDash = false;
         isDashing = true;
-
+        SoundEffectManager.Instance.PlaySound("SwooshSFX1");
         trailRenderer.emitting = true;
 
         facingRight = playerMovement.isFacingRight;

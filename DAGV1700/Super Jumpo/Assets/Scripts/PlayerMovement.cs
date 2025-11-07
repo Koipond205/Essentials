@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public bool isFacingRight = true;
     public ParticleSystem smokeFX;
-    BoxCollider2D playerCollider;
+    CapsuleCollider2D playerCollider;
+    public Animator animator;
+    private SpriteRenderer spriteRenderer;
     //isDashing Connector
     private DashAbility dashAbility;
     bool dashing;
@@ -17,8 +19,11 @@ public class PlayerMovement : MonoBehaviour
     bool webSwinging;
 
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
+    public float sprintBoost = 3f;
+    private float moveSpeed;
     float horizontalMovement;
+    private bool isSprinting;
 
     [Header("Jumping")]
     public float jumpPower = 10f;
@@ -53,36 +58,50 @@ public class PlayerMovement : MonoBehaviour
     public float maxFallSpeed = 18f;
     public float fallSpeedMultiplier = 2f;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        playerCollider = GetComponent<BoxCollider2D>();
+        moveSpeed = baseMoveSpeed; //For sprinting
+        playerCollider = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         dashAbility = GetComponent<DashAbility>();
         webSwingAbility = GetComponent<WebSwingAbility>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         dashing = dashAbility.isDashing;
         webSwinging = webSwingAbility.isSwinging;
         if(!dashing && !webSwinging)
         {
+            UpdateAnimationState();
             GroundCheck();
+            UpdateAnimationState();
             Gravity();
+            UpdateAnimationState();
             ProcessWallSlide();
+            UpdateAnimationState();
             ProcessWallJump();
+            UpdateAnimationState();
+            UpdateSpeed();
             Flip();
 
             if (!isWallJumping)
             {
                 rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
-                Flip();
             }
+            UpdateAnimationState();
         }
+    }
+
+    private void UpdateAnimationState()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetBool("isFalling", rb.linearVelocity.y < 0);
+        animator.SetBool("isWallSliding", isWallSliding);
+        animator.SetBool("isJumping", rb.linearVelocity.y > 0 && !isWallSliding);
+        animator.SetBool("isSprinting", isSprinting && isGrounded);
     }
 
     private void Gravity()
@@ -104,6 +123,26 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalMovement = context.ReadValue<Vector2>().x;
         }
+    }
+
+    // Sprint input
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isSprinting = true;
+            SoundEffectManager.Instance.PlaySound("SquishSFX2");
+            smokeFX.Play();
+        }
+        else if (context.canceled)
+        {
+            isSprinting = false;
+        }
+    }
+
+    private void UpdateSpeed()
+    {
+        moveSpeed = isSprinting ? baseMoveSpeed + sprintBoost : baseMoveSpeed;
     }
 
     //Player Drops through platform
@@ -149,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
                 jumpsRemaining--;
                 JumpFX();
+                SoundEffectManager.Instance.PlaySound("JumpSFX1");
                 
             }
             else if (context.canceled)
@@ -167,17 +207,18 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y); //Jump away from the wall
             wallJumpTimer = 0;
             JumpFX();
+            SoundEffectManager.Instance.PlaySound("JumpSFX1");
             
 
             //Force flip
-            if(transform.localScale.x != wallJumpDirection)
+            /*if(transform.localScale.x != wallJumpDirection)
             {
                 isFacingRight = !isFacingRight;
                 Vector3 ls = transform.localScale;
                 ls.x *= -1f;
                 transform.localScale = ls;
                 Debug.Log("FlipForced");
-            }
+            }*/
 
             Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); //wall Jump = 0.5f -- Jump again = 0.6f
         }
@@ -250,11 +291,15 @@ public class PlayerMovement : MonoBehaviour
             Vector3 ls = transform.localScale;
             ls.x *= -1f;
             transform.localScale = ls;
-            Debug.Log("Flip");
+            spriteRenderer.flipX = !spriteRenderer.flipX;
 
             if(rb.linearVelocity.y == 0)
             {
                 smokeFX.Play();
+                if(isSprinting)
+                {
+                    SoundEffectManager.Instance.PlaySound("HaltSFX1");
+                }
             }
         }
     }
