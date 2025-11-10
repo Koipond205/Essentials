@@ -667,10 +667,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!19719996 &61115672
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -7877,7 +7877,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.04, y: 1.46, z: -10}
+  m_LocalPosition: {x: -4.04, y: -0.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11603,7 +11603,7 @@ Transform:
   m_GameObject: {fileID: 1586193346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.04, y: 1.46, z: 0}
+  m_LocalPosition: {x: -4.04, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11639,7 +11639,7 @@ MonoBehaviour:
   groundCheckSize: {x: 0.8, y: 0.04}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 1096
   wallCheckPos: {fileID: 1431442001}
   wallCheckSize: {x: 1.9, y: 0.9}
   wallLayer:
@@ -14703,7 +14703,7 @@ Transform:
   m_GameObject: {fileID: 1971446178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.04, y: 1.46, z: -10}
+  m_LocalPosition: {x: -4.04, y: -0.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
